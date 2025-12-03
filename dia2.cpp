@@ -12,11 +12,14 @@ bool NumeroInvalido(long long n) {
         string repetido = "";
         int veces = tamaño / l;
 
-        for (int i = 0; i < veces; i++)
+        for (int i = 0; i < veces; i++){
             repetido += patron; //coloca el posible patron en repetido
 
-        if (repetido == s)
-            return true;  //si ese patron coincide devuelve true
+        } 
+        if (repetido == s){
+            return true; //si ese patron coincide devuelve true
+    
+        }
     }
 
     return false;
