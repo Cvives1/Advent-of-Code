@@ -75,7 +75,7 @@ vector<pair<long long, long long>> leerInput(const string& ruta) { //funcion que
 }
 
 int main() {
-    string ruta = "input-dia2";
+    string ruta = "input-dia2.txt";
     vector<pair<long long, long long>> rangos = leerInput(ruta);
 
 
