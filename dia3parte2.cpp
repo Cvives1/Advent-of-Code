@@ -75,4 +75,5 @@ int main(){
         }
         cout << "-> " << joltTotal << " " << endl;
     }
+
 }
