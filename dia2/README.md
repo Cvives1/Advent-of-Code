@@ -76,3 +76,6 @@ No he probado otra alternativa debido a que hemos visto de primeras el divide y 
 
 ## **Valoración personal sobre lo aprendido**
 Haciendo este código hemos aprendido nuevas clases de variables como **long long** (que nos permite trabajar con números más grandes) o **pair**(para manejar datos de manera más ordenada), y la manera de utilizar el **for** para recorrer un vector.
+``` 
+for (pair<long long, long long>& r : rangos){}
+```
