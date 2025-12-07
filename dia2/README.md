@@ -6,7 +6,8 @@ Para comenzar, hemos utilizado una función para leer el input y que nos devolvi
 ### dia2parte1.cpp | dia2parte2.cpp
 ```vector<pair<long long, long long>> leerInput(const string& ruta){}```
 
-Después he creado una función de tipo bool, que comprueba si un numero sigue un patrón.  
+    
+Después he creado una función de tipo bool, que comprueba si un numero sigue un patrón (diferente en cada parte).  
 ### Parte1  
 En la parte 1, pide que **el patrón sea que las dos mitades del número sean iguales**, entonces se convierte el número en un string y si el tamaño de ese string no es par no puede seguir este patrón. Tras esto, se hace la mitad del tamaño del string, y por último se comparan las dos mitades para que devuelva true si es igual y false si es diferente.
 ```
