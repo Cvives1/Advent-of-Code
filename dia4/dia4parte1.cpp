@@ -9,7 +9,7 @@ int main() {
     string line;
 
     // Abrir archivo
-    ifstream infile("input.txt"); // Cambia "entrada.txt" por el nombre de tu archivo
+    ifstream infile("input.txt"); 
     if (!infile.is_open()) {
         cerr << "No se pudo abrir el archivo\n";
         return 1;
@@ -23,7 +23,7 @@ int main() {
             grid.push_back(line);
     }
 
-    infile.close(); // Cerrar el archivo
+    infile.close(); 
 
     int h = grid.size();
     int w = grid.empty() ? 0 : grid[0].size();
@@ -61,3 +61,4 @@ int main() {
     cout << accesibles << "\n";
     return 0;
 }
+
