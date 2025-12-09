@@ -2,7 +2,7 @@
 
 Hemos elegido este problema porque es un buen ejercicio de procesamiento en rejillas (grids), detección de vecinos y simulación por pasos. Son tareas comunes en muchos desafíos de programación y permiten practicar manejo de archivos, vectores y algoritmos iterativos.
 
-Para este día no utilizamos técnicas como divide y vencerás, sino que se aplican dos enfoques diferentes:
+Para este día utilizamos:
 
 - **Parte 1:** un simple recorrido completo de la rejilla.
 
