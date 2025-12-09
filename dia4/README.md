@@ -103,9 +103,7 @@ La simulación continúa hasta que ya no quede ningún '@' con menos de 4 vecino
 
 Resultado final: se imprime el número total de '@' eliminados a lo largo de todos los ciclos.
 ## **Otras alternativas**
-
-No hemos explorado otras soluciones porque este problema se resuelve de manera óptima mediante recorrido por grid, conteo de vecinos y simulación por ciclos.
-Técnicas comoBFS o DFS no aportan ventaja aquí, ya que no buscamos regiones conectadas sino reglas locales por celda.
+Aunque podrían usarse técnicas como divide y vencerás, programación dinámica o incluso estructuras como árboles y tablas hash para optimizar conteos o gestionar celdas activas, en este problema no aportan una mejora real.
 
 ## **Valoración personal sobre lo aprendido**
 
@@ -115,10 +113,8 @@ Con esta práctica hemos reforzado:
 
 - Manejo correcto de índices y límites.
 
-- Algoritmos basados en vecinos (muy habituales en simulaciones).
+- Algoritmos basados en vecinos.
 
 - Ciclos iterativos donde la matriz va cambiando paso a paso.
 
 - Uso de vector<pair<int,int>> para almacenar coordenadas temporalmente.
-
-Además, es un ejercicio que se parece a problemas reales como modelos celulares o simulaciones de vida artificial.
