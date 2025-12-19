@@ -7,7 +7,7 @@ En la **parte 1**, el objetivo era contar todos los caminos posibles desde un no
 
 En la **parte 2**, se añadió la condición de que cada camino debe pasar por dos nodos específicos (`dac` y `fft`).
 
-Antes de nombrar las técnicas realizadas aclaro que hemos usado librerías que han sido realizadas en práctiicas, que son: **Dict.h**, **HashTable.h**, **List.h**, **ListLinked.h**, **Node.h** y **TableEntry.h**
+Antes de nombrar las técnicas realizadas aclaro que hemos usado librerías que han sido realizadas en prácticas, que son: **Dict.h**, **HashTable.h**, **List.h**, **ListLinked.h**, **Node.h** y **TableEntry.h**
 
 Las técnicas para resolverlo que hemos utilizado son:
 
