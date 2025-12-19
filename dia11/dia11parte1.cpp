@@ -20,7 +20,7 @@ int countPaths(HashTable<ListLinked<string>*>& graph, const string& node, const 
 }
 
 int main() {
-    HashTable<ListLinked<string>*> graph(1000, 1000); // tamaño grande para que no haga rehash
+    HashTable<ListLinked<string>*> graph(1000, 1000); 
 
     string line;
     while (getline(cin, line)) {
