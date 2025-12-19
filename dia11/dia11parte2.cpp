@@ -7,7 +7,7 @@
 
 using namespace std;
 
-// Clave para memoización: nodo + estado de dac y fft
+
 struct State {
     string node;
     bool hasDac;
@@ -25,7 +25,7 @@ struct StateHash {
     }
 };
 
-// DFS con memoización usando long long
+// DFS con memorización usando long long
 long long dfs(HashTable<ListLinked<string>*> &graph, const string &node, bool hasDac, bool hasFft,
               unordered_map<State,long long,StateHash> &memo) {
 
