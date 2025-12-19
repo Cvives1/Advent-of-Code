@@ -7,18 +7,20 @@ En la **parte 1**, el objetivo era contar todos los caminos posibles desde un no
 
 En la **parte 2**, se añadió la condición de que cada camino debe pasar por dos nodos específicos (`dac` y `fft`).
 
-Para resolverlo hemos utilizado:
+Antes de nombrar las técnicas realizadas aclaro que hemos usado librerías que han sido realizadas en práctiicas, que son: **Dict.h**, **HashTable.h**, **List.h**, **ListLinked.h**, **Node.h** y **TableEntry.h**
 
-- **Hash tables** para almacenar el grafo con acceso rápido a cada nodo.
+Las técnicas para resolverlo que hemos utilizado son:
+
+- **Tabla hash** para almacenar el grafo con acceso rápido a cada nodo.
 - **Listas enlazadas (`ListLinked`)** para representar las salidas de cada nodo.
-- **DFS (Depth First Search)** para recorrer todos los caminos posibles.
-- **Memoización** en la parte 2, para evitar recalcular caminos repetidos y manejar grandes grafos.
+- **DFS (Depth First Search)** para recorrer todos los caminos posibles hasta el final.
+- **Memorización** en la parte 2, para evitar recalcular caminos repetidos y manejar grandes grafos.
 
 ## **Descripción de la resolución del problema**
-Para comenzar, hemos creado funciones para leer el input y construir el grafo con hash tables y listas enlazadas.
+Para comenzar, hemos creado funciones para leer el input y construir el grafo con tabla hash y listas enlazadas.
 
 ### dia11parte1.cpp
-En la parte 1, se contaban todos los caminos posibles desde `you` hasta `out` usando DFS sin memoización:
+En la parte 1, se contaban todos los caminos posibles desde `you` hasta `out` usando DFS sin memorización:
 ```cpp
 int countPaths(HashTable<ListLinked<string>*>& graph, const string& node, const string& target) {
     if (node == target) return 1;
@@ -57,7 +59,7 @@ while (getline(cin, line)) {
 ```
 
 ### dia11parte2.cpp
-En la parte 2, se añadieron **memoización y control de estados** para verificar si cada camino pasa por `dac` y `fft`.
+En la parte 2, se añadieron **memorización y control de estados** para verificar si cada camino pasa por `dac` y `fft`.
 
 Se definió un `struct` para el estado del DFS:
 ```cpp
@@ -78,7 +80,7 @@ struct StateHash {
 };
 ```
 
-El DFS con memoización devuelve un `long long` para evitar desbordes en grafos grandes:
+El DFS con memorización devuelve un `long long` para evitar desbordes en grafos grandes:
 ```cpp
 long long dfs(HashTable<ListLinked<string>*> &graph, const string &node, bool hasDac, bool hasFft,
               unordered_map<State,long long,StateHash> &memo) {
@@ -106,30 +108,9 @@ long long dfs(HashTable<ListLinked<string>*> &graph, const string &node, bool ha
 }
 ```
 
-### Llamada principal
-- **Parte 1:**
-```cpp
-int totalPaths = countPaths(graph, "you", "out");
-cout << totalPaths << endl;
-```
-- **Parte 2:**
-```cpp
-unordered_map<State,long long,StateHash> memo;
-long long totalPaths = dfs(graph, "svr", false, false, memo);
-cout << totalPaths << endl;
-```
-
 ## **Otras alternativas**
-Se podría haber utilizado `unordered_map<string, vector<string>>` para el grafo, pero usar nuestras propias estructuras (`HashTable` y `ListLinked`) demuestra dominio de la implementación de estructuras de datos.
-
-Se descartó recorrer el grafo sin memoización en la parte 2, ya que habría sido demasiado lento.
+Se exploró la idea de usar árboles pero el problema consiste en un grafo general con múltiples caminos posibles entre nodos, y los árboles binarios no permiten representar correctamente todos los caminos ni las conexiones múltiples de manera natural. Usarlos  no aportaría ninguna ventaja frente a la representación respecto a las tablas hash y listas enlazadas.
 
 ## **Valoración personal sobre lo aprendido**
-Hemos aprendido:
-
-- Manejo de **hash tables y listas enlazadas** para representar grafos.
-- Uso de **DFS recursivo y memoización** para contar caminos eficientemente.
-- Creación y uso de **structs como claves de hash**.
-- Optimización de código para evitar recalcular caminos repetidos.
-- Mejora de comprensión de algoritmos sobre grafos y estructuras dinámicas.
+Hemos aprendido a manejar tablas hash y listas enlazadas para representar grafos, aplicar DFS recursivo con memorización para contar caminos de forma eficiente, crear y usar structs como claves de hash, optimizar el código evitando recalcular caminos repetidos, y mejorar la comprensión de algoritmos sobre grafos y estructuras dinámicas, integrando teoría con práctica de implementación propia
 
