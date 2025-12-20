@@ -109,7 +109,7 @@ long long dfs(HashTable<ListLinked<string>*> &graph, const string &node, bool ha
 ```
 
 ## **Otras alternativas**
-Se exploró la idea de usar árboles pero el problema consiste en un grafo general con múltiples caminos posibles entre nodos, y los árboles binarios no permiten representar correctamente todos los caminos. Usarlos  no aportaría ninguna ventaja frente a las tablas hash y las listas enlazadas.
+Se exploró la idea de usar árboles pero el problema consiste en un grafo con múltiples caminos posibles entre nodos, y los árboles binarios no permiten representar correctamente todos los caminos. Usarlos no aportaría ninguna ventaja frente a las tablas hash y listas enlazadas.
 
 ## **Valoración personal sobre lo aprendido**
 Hemos aprendido a manejar tablas hash y listas enlazadas para representar grafos, aplicar DFS recursivo con memorización para contar caminos de forma eficiente, crear y usar structs como claves de hash, optimizar el código evitando recalcular caminos repetidos, y mejorar la comprensión de algoritmos sobre grafos y estructuras dinámicas.
