@@ -91,7 +91,7 @@ Resultado final: número total de IDs considerados frescos, sin duplicados.
 
 ## **Otras alternativas**
 
-Podríamos haber usado otras estructuras como set de enteros para guardar cada ID individual, pero esto sería mucho menos eficiente para rangos grandes. El enfoque de fusión de rangos es más eficiente y simple.
+La primera idea que tuvimos fue resolver este problema mediante una tabla hash, lo que para la parte 1 sería válido y eficiente. Sin embargo, al llegar a la parte dos nos dimos cuenta que hacerlo de esta manera era inviable, debido a que si los rangos son muy amplios y/o hubiesen muchos rangos distintos se ocuparía mucha memoria y no sería nada eficiente. Por esto descartamos resolverlo por tablas hash.
 
 ---
 
