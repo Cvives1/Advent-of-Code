@@ -1,11 +1,15 @@
 ## Advent of Code 2025 - Dia 7
-### Compilar y ejecutar el archivo   
+### Compilar y ejecutar el archivo (Windows PowerShell)
+
+g++ -o dia7parte1 dia7parte1.cpp
+
+Get-Content input.txt | ./dia7parte1.exe
 
 g++ -o dia7parte2 dia7parte2.cpp
 
 Get-Content input.txt | ./dia7parte2.exe
 
-Windows PowerShell
+
 
 ## **¿Por qué hemos elegido este problema? ¿Qué técnica hemos utilizado?**
 Hemos elegido hacer el dia 7 porque hemos pensado que seria un caso donde podriamos aplicar con facilidad la tecnica de la programación dinámica.
