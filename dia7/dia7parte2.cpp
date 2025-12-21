@@ -37,7 +37,8 @@ int main() {
         if (grid[0][j] == 'S'){ // Encontramos la columna inicial S
             startCol = j;}}
 
-    long long total = F(1, startCol);  // justo debajo de S
+    long long total = F(1, startCol);  
     cout << total << "\n";
 }
+
 
