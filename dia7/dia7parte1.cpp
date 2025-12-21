@@ -32,20 +32,23 @@ int main() {
     cin.tie(nullptr);
 
     string line;
-    while (getline(cin, line)) if (!line.empty()) grid.push_back(line); //se lee el input
+    while (getline(cin, line)){ 
+        if (!line.empty()){ 
+            grid.push_back(line);}}//se lee el input
 
     R = grid.size();
     C = grid[0].size();
     dp.assign(R, vector<int>(C, -1));
 
     int startCol = -1;
-    for (int j = 0; j < C; j++)
-        if (grid[0][j] == 'S')
-            startCol = j;
+    for (int j = 0; j < C; j++){
+        if (grid[0][j] == 'S'){
+            startCol = j;}}
 
-    if (startCol != -1 && R > 1)
-        F(1, startCol);
+    if (startCol != -1 && R > 1){
+        F(1, startCol);}
 
     cout << splits << "\n"; //se imprime el resultado
 }
+
 
