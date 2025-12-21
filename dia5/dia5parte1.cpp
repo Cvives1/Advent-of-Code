@@ -69,7 +69,7 @@ int main() {
             continue;  // linea mal formada, sigue con la siguiente
         }
 
-        tree.insert(Range(start, end));  
+        tree.insert(Range(start, end));  // inserta el rango en el arbol
     }
 
     // 2. Leer IDs y contar los que estan en rangos
