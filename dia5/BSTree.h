@@ -13,14 +13,14 @@ private:
     long long nelem;
     BSNode<T>* root;
 
-    //Inserta un elemento e en el árbol fusionando rangos solapados o continuos
+    // Inserta un elemento en el arbol y une rangos si se solapan
     BSNode<T>* insert(BSNode<T>* n, T e) {
         if (!n) {
             return new BSNode<T>(e);
         }
 
         if (!(e.end < n->elem.start - 1 || e.start > n->elem.end + 1)) {
-            // Unir rangos solapados o continuos
+            // Si los rangos se tocan o se solapan, se unen
             n->elem.start = std::min(n->elem.start, e.start);
             n->elem.end   = std::max(n->elem.end, e.end);
             return n;
@@ -36,6 +36,7 @@ private:
         return n;
     }
 
+    // Borra todo el arbol desde un nodo
     void delete_cascade(BSNode<T>* n) {
         if (!n) {
             return;
@@ -45,6 +46,7 @@ private:
         delete n;
     }
 
+    // Comprueba si un numero esta dentro de algun rango
     bool containsRange(BSNode<T>* node, long long id) const {
         if (!node){ 
             return false;
@@ -58,6 +60,7 @@ private:
         return containsRange(node->right, id);
     }
 
+    // Recorre el arbol en orden y guarda los elementos
     void inorder(BSNode<T>* node, std::vector<T>& vec) const {
         if (!node){
             return;
@@ -76,15 +79,18 @@ public:
 
     ~BSTree() { delete_cascade(root); }
 
+    // Inserta un elemento en el arbol
     void insert(T e) { 
         root = insert(root, e); 
         nelem++;
     }
 
+    // Comprueba si un numero esta en el arbol
     bool containsRange(long long id) const {
         return containsRange(root, id);
     }
 
+    // Devuelve todos los elementos en orden
     std::vector<T> getAll() const {
         std::vector<T> vec;
         inorder(root, vec);
