@@ -7,13 +7,13 @@
 #include "TableEntry.h"
 
 using namespace std;
-
+// función que cuenta los caminos de un nodo hasta un objetivo
 int countPaths(HashTable<ListLinked<string>*>& graph, const string& node, const string& target) {
-    if (node == target) return 1;
+    if (node == target) return 1; //caso base
 
     int total = 0;
-    ListLinked<string>* neighbors = graph[node];
-    for (int i = 0; i < neighbors->size(); i++) {
+    ListLinked<string>* neighbors = graph[node]; //vecinos del nodo
+    for (int i = 0; i < neighbors->size(); i++) { //se recorren las salidas del nodo
         total += countPaths(graph, neighbors->get(i), target);
     }
     return total;
@@ -21,7 +21,7 @@ int countPaths(HashTable<ListLinked<string>*>& graph, const string& node, const 
 
 int main() {
     HashTable<ListLinked<string>*> graph(1000, 1000); 
-
+    // se lee el input
     string line;
     while (getline(cin, line)) {
         if (line.empty()) continue;
@@ -43,9 +43,9 @@ int main() {
             neighbors->append(neighbor);
         }
     }
-
+    //se cuentan los caminos de you hasta out
     int totalPaths = countPaths(graph, "you", "out");
-    cout << totalPaths << endl;
-
+    cout << totalPaths << endl; //se imprime el numero de los caminos posibles
+    
     return 0;
 }
