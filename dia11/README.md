@@ -59,9 +59,10 @@ while (getline(cin, line)) {
 ```
 
 ### dia11parte2.cpp
-En la parte 2, se añadieron **memorización y control de estados** para verificar si cada camino pasa por `dac` y `fft`.
+En la parte 2, se añadieron **memorización y control de estados** para verificar si cada camino pasa por `dac` y `fft`.  
 
 Se definió un `struct` para el estado del DFS:
+En el operador == se utiliza el && (and) para comprobar que todas las condiciones se cumplan.
 ```cpp
 struct State {
     string node;
@@ -72,7 +73,9 @@ struct State {
         return node == other.node && hasDac == other.hasDac && hasFft == other.hasFft;
     }
 };
-
+```
+Y en el operador () se utiliza el ^ para mezclar de manera eficiente los valores, y así evitar colisiones en la tabla hash.
+```
 struct StateHash {
     size_t operator()(const State& s) const {
         return hash<string>()(s.node) ^ hash<int>()(s.hasDac) ^ (hash<int>()(s.hasFft) << 1);
@@ -112,5 +115,5 @@ long long dfs(HashTable<ListLinked<string>*> &graph, const string &node, bool ha
 Se exploró la idea de usar árboles pero el problema consiste en un grafo con múltiples caminos posibles entre nodos, y los árboles binarios no permiten representar correctamente todos los caminos. Usarlos no aportaría ninguna ventaja frente a las tablas hash y listas enlazadas.
 
 ## **Valoración personal sobre lo aprendido**
-Hemos aprendido a manejar tablas hash y listas enlazadas para representar grafos, aplicar DFS recursivo con memorización para contar caminos de forma eficiente, crear y usar structs como claves de hash, optimizar el código evitando recalcular caminos repetidos, y mejorar la comprensión de algoritmos sobre grafos y estructuras dinámicas.
+Hemos aprendido a manejar tablas hash y listas enlazadas para representar grafos, aplicar DFS recursivo con memorización para contar caminos de forma eficiente, crear y usar structs como claves de hash, y optimizar el código evitando recalcular caminos repetidos.
 
