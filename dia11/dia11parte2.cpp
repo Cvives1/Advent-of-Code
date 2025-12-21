@@ -7,12 +7,12 @@
 
 using namespace std;
 
-
+// Estructura para almacenar el estado de un nodo
 struct State {
     string node;
     bool hasDac;
     bool hasFft;
-
+    // operador para comprobar si dos estados son iguales
     bool operator==(const State &other) const {
         return node == other.node && hasDac == other.hasDac && hasFft == other.hasFft;
     }
@@ -26,6 +26,7 @@ struct StateHash {
 };
 
 // DFS con memorización usando long long
+    //recorre el grafo desde un nodo hasta out teniendo en cuenta si pasa por dac o fft
 long long dfs(HashTable<ListLinked<string>*> &graph, const string &node, bool hasDac, bool hasFft,
               unordered_map<State,long long,StateHash> &memo) {
 
@@ -34,7 +35,7 @@ long long dfs(HashTable<ListLinked<string>*> &graph, const string &node, bool ha
     }
 
     State st{node, hasDac, hasFft};
-    if (memo.count(st)) return memo[st];
+    if (memo.count(st)) return memo[st]; // se comprueba si el estado ha sido calculado anteriormente
 
     bool newHasDac = hasDac || node == "dac";
     bool newHasFft = hasFft || node == "fft";
@@ -44,7 +45,7 @@ long long dfs(HashTable<ListLinked<string>*> &graph, const string &node, bool ha
     try {
         outs = graph.search(node);
     } catch(...) {
-        return 0; // nodo sin salidas
+        return 0; // nodo sin salidas (no es válido)
     }
 
     for(int i=0;i<outs->size();i++){
@@ -60,7 +61,9 @@ int main() {
     HashTable<ListLinked<string>*> graph(1000, 1000);
 
     string line;
+    // se lee el input
     while(getline(cin, line)){
+        //separación de nodo y vecinos
         if(line.empty()) continue;
         size_t pos = line.find(":");
         string node = line.substr(0,pos);
@@ -79,7 +82,7 @@ int main() {
 
     unordered_map<State,long long,StateHash> memo;
     long long totalPaths = dfs(graph, "svr", false, false, memo);
-    cout << totalPaths << endl;
+    cout << totalPaths << endl; //se imprimen los caminos
 
     return 0;
 }
