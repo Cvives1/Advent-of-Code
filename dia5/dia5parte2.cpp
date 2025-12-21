@@ -10,8 +10,16 @@
 struct Range {
     long long start;
     long long end;
-    Range() : start(0), end(0) {}
-    Range(long long s, long long e) : start(s), end(e) {}
+
+    Range() {
+        start = 0;
+        end = 0;
+    }
+
+    Range(long long s, long long e) {
+        start = s;
+        end = e;
+    }
 };
 
 // Ordenar rangos por start
@@ -20,7 +28,7 @@ bool operator<(const Range& a, const Range& b) {
 }
 
 int main() {
-    std::ifstream file("input.txt");
+    std::ifstream file("input.txt");     // abrir el archivo
     if (!file) {
         std::cerr << "Error al abrir el archivo\n";
         return 1;
@@ -29,26 +37,29 @@ int main() {
     std::vector<Range> ranges;
     std::string line;
 
-    // Leer rangos del archivo
-    while (std::getline(file, line)) {
-        if (line.empty()) break; // Separación entre secciones
+    // 1. Leer rangos
+   while (std::getline(file, line)) {
+        if (line.empty()) {
+            break;  
+        }
 
         long long start, end;
         if (sscanf(line.c_str(), "%lld-%lld", &start, &end) != 2) {
-            std::cerr << "Línea inválida: " << line << "\n";
-            continue;
+            std::cerr << "Linea de rango invalida: " << line << std::endl;
+            continue;  // linea mal formada, sigue con la siguiente
         }
-        ranges.push_back(Range(start, end));
+
+        ranges.push_back(Range(start, end)); // agrega rango al vector
     }
 
-    // Ordenar rangos por start
+    // 2. Ordenar rangos por start
     std::sort(ranges.begin(), ranges.end());
 
-    // Fusionar rangos solapados
+    // 3. Fusionar rangos solapados
     std::vector<Range> merged;
     for (const auto& r : ranges) {
         if (merged.empty() || r.start > merged.back().end + 1) {
-            // No se solapan
+            // No se solapan, agrega nuevo
             merged.push_back(r);
         } else {
             // Fusionar con el último rango
@@ -56,10 +67,10 @@ int main() {
         }
     }
 
-    // Contar todos los IDs frescos
+    // 4. Contar todos los IDs frescos
     long long totalFresh = 0;
     for (const auto& r : merged) {
-        totalFresh += (r.end - r.start + 1);
+        totalFresh += (r.end - r.start + 1); // suma todos los elementos del rango
     }
 
     std::cout << "Total de IDs frescos: " << totalFresh << std::endl;
