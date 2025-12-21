@@ -1,5 +1,5 @@
 ## Advent of Code 2025 - Dia 11
-### Compilar y ejecutar el archivo  
+### Compilar y ejecutar el archivo (linux)  
 g++ -o dia11parte1 dia11parte1.cpp  
 ./dia11parte1 < input.txt  
 
