@@ -1,3 +1,13 @@
+## Advent of Code 2025 - Dia 5
+### Compilar y ejecutar el archivo (linux)  
+```
+g++ -o dia5parte1 dia5parte1.cpp  
+./dia5parte1
+```
+```
+g++ -o dia5parte2 dia5parte2.cpp    
+./dia5parte2
+```
 ## **¿Por qué hemos elegido este problema?** **¿Qué técnica hemos utilizado?**
 
 Hemos elegido este problema porque es un excelente ejercicio de manejo de rangos numéricos, búsqueda eficiente y procesamiento de archivos. Permite practicar estructuras de datos como árboles binarios de búsqueda (BST), así como técnicas de ordenación y fusión de intervalos.
