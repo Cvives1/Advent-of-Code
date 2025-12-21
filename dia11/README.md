@@ -1,5 +1,11 @@
 ## Advent of Code 2025 - Dia 11
+### Compilar y ejecutar el archivo  
+g++ -o dia11parte1 dia11parte1.cpp  
+./dia11parte1 < input.txt  
 
+
+g++ -o dia11parte2 dia11parte2.cpp    
+./dia11parte2 < input.txt
 ## **¿Por qué hemos elegido este problema? ¿Qué técnica hemos utilizado?**
 Hemos elegido este problema porque se trata de un caso claro de aplicación de **estructuras de datos avanzadas y algoritmos sobre grafos**.
 
