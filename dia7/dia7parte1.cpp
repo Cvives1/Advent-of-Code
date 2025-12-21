@@ -7,8 +7,8 @@ int R, C;
 long long splits = 0;
 
 bool F(int i, int j) {
-    if (i < 0 || i >= R || j < 0 || j >= C) return false;
-    if (dp[i][j] != -1) return dp[i][j];
+    if (i < 0 || i >= R || j < 0 || j >= C) return false; //si nos salimos del grid == falso
+    if (dp[i][j] != -1) return dp[i][j]; //si ya se ha calculado esta celda se usa el resultado guardado
 
     bool reached = false;
     if (grid[i][j] == '^') {
@@ -16,14 +16,14 @@ bool F(int i, int j) {
         bool left  = F(i+1, j-1);
         bool right = F(i+1, j+1);
         reached = left || right;
-        splits++; // solo se cuenta al llegar
+        splits++; 
     } else if (i+1 < R) {
         reached = F(i+1, j);
     } else {
         reached = true; // última fila
     }
 
-    dp[i][j] = reached ? 1 : 0;
+    dp[i][j] = reached ? 1 : 0; //se guarda resultado en la tabla
     return reached;
 }
 
@@ -32,7 +32,7 @@ int main() {
     cin.tie(nullptr);
 
     string line;
-    while (getline(cin, line)) if (!line.empty()) grid.push_back(line);
+    while (getline(cin, line)) if (!line.empty()) grid.push_back(line); //se lee el input
 
     R = grid.size();
     C = grid[0].size();
@@ -46,5 +46,6 @@ int main() {
     if (startCol != -1 && R > 1)
         F(1, startCol);
 
-    cout << splits << "\n";
+    cout << splits << "\n"; //se imprime el resultado
 }
+
