@@ -12,9 +12,11 @@ Get-Content input.txt | ./dia7parte2.exe
 
 
 ## **¿Por qué hemos elegido este problema? ¿Qué técnica hemos utilizado?**
-Hemos elegido hacer el dia 7 porque hemos pensado que seria un caso donde podriamos aplicar con facilidad la tecnica de la programación dinámica.
+Hemos elegido hacer el día 7 porque hemos pensado que sería un caso donde podríamos aplicar con facilidad la técnica de la programación dinámica.  
 
-En tanto la parte 1 como la parte 2, hemos utilizado una estructura constante para almacenar datos de cada iteracion distinta de un proceso recursivo, que, en el caso de estos ejercicios, es la matriz dp[][], donde se van almacenando valores booleanos de los lugares donde se producen splits para luego poder recontarlos en el caso de la 1ra parte o valores long long que representan en cuantas de las lineas temporales posibles ha pasado el haz por ese punto, en caso de la parte 2.
+En tanto la parte 1 como la parte 2, hemos utilizado una estructura constante para almacenar datos de cada iteración distinta de un proceso recursivo, que, en el caso de estos ejercicios, es la matriz dp[][].  
+
+En la parte 1 la programación dinámica no es estrictamente necesaria, pero se utiliza para evitar recalcular estados ya visitados, reduciendo el tiempo de ejecución y simplificando la implementación. En el caso de la 1ra parte se almacenan valores booleanos de los lugares donde se producen splits para luego poder recontarlos, mientras que en la parte 2 se almacenan valores long long que representan en cuántas de las líneas temporales posibles ha pasado el haz por ese punto.
 
 ## **Descripción de la resolución del problema**
 En ambas partes del trabajo utilizamos una funcion llamada F para parsear el problema:
